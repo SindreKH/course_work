@@ -1,0 +1,65 @@
+.maincont{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+.engineer{
+    width: auto;
+    height: auto;
+}
+.grid_p  {
+    font-size: 24px;
+}
+.grid_body{
+    background-color: black;
+}
+
+.grid_container {
+    text-align: center;
+    display: grid;
+    background-color: darkgrey;
+}
+.grid_first{
+    grid-column-start:1;
+    grid-column-end: 3;
+    background-color: #093145;
+    color: white;
+    text-shadow: 3px 3px 2px #000000;
+
+}
+.grid_second{
+    background-color: red;
+    letter-spacing: .03;
+    color: white;
+    text-shadow: 3px 3px 2px #000000;
+}
+.grid_third{
+    grid-column-start: 1;
+    background-color: green;
+    color: white;
+    text-shadow: 3px 3px 2px #000000;
+
+}
+.input_grid:hover{
+    transition:ease 1s;
+    background: grey;
+}
+.driller_animate{
+    position: relative;
+    animation: movingdriller 3s infinite;
+}
+@keyframes movingdriller {
+    0%   {left: 0px;}
+    20%  {left: 100px;}
+    40%  {left: -100px;}
+    60%  {left: 100px;}
+    80% {left: -100px;}
+    100% {left: 0px;}
+  }
+#mini_text{
+    background-color: black;
+    color: white;
+    text-shadow: 3px 3px 2px grey
+
+}

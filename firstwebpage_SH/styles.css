@@ -1,0 +1,44 @@
+.header {
+    margin: 75px auto;
+}
+h1 {
+    color:yellow;
+}
+body{
+    background-image: url("");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+}
+.engineer-img{
+    display:flex;
+    flex-direction: row;
+}
+.main{
+    padding: 25px;
+    border: 2px black solid;
+    border-radius: px;
+    border-width: 5px;
+    width: 30%;
+
+}
+.btn{
+    height:inherit;
+    color: rgb(58, 38, 11);
+}
+button{
+    color:inherit;
+}
+.secondbtn{
+    margin: 25px;
+}
+.thirdbtn{
+    margin: 25px;
+}
+.engi{
+    margin-right: 50px;
+    width: 25%;
+    height: 25%;
+}
