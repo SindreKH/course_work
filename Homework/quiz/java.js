@@ -33,8 +33,9 @@ const quizQuestions = [
     },
   ]
 
-function displayQuestion(questionArray) {
-  let questionObj = questionArray[0]
+function displayQuestion(questionArray, currentQuestion) {
+  currentQuestion = currentQuestion
+  let questionObj = questionArray[currentQuestion]
   const {question, choices, correctAnswers, usersAnswer} = questionObj
   
   let questionText = document.createElement("p")
@@ -46,9 +47,13 @@ function displayQuestion(questionArray) {
     const element = choices[index];
     let checkBox = document.createElement("input")
     checkBox.type="checkbox"
-    checkBox.addEventListener("click", (e)=>{
-      let usersChoice = e.target.parentElement.textContent
-      usersAnswer.push(usersChoice)
+    checkBox.addEventListener("click", (event)=>{
+      let usersChoice = event.target.parentElement.textContent
+      if (usersAnswer.includes(usersChoice)){
+        usersAnswer.splice(usersAnswer.indexOf(usersChoice, 1))
+      } else {
+        usersAnswer.push(usersChoice)
+      }
       console.log(usersAnswer)
 
     })
@@ -59,11 +64,26 @@ function displayQuestion(questionArray) {
     choicesContainer.append(userChoices)
   }
   let submitButton = document.createElement("button")
-  submitButton.addEventListener("submit",() =>{
+  submitButton.addEventListener("click",() =>{
+
+    if (usersAnswer.length > 0){
+
     const submitAnswers = correctAnswers[0]
-    usersAnswer.includes(submitAnswers)
-    
+    if (usersAnswer.includes(submitAnswers)){
+      console.log("give me points")
+    }
+      while (quizDiv.firstChild){
+        quizDiv.removeChild(quizDiv.firstChild)
+    }
+    console.log(usersAnswer)
+    console.log(correctAnswers)
+      
+    currentQuestion++
+    displayQuestion(questionArray, currentQuestion)
+
+    }
   })
+  submitButton.textContent = "Submit"
 
 
 
@@ -71,4 +91,6 @@ function displayQuestion(questionArray) {
 
   quizDiv.append(questionText, choicesContainer, submitButton)
 }
-displayQuestion(quizQuestions)
+
+
+displayQuestion(quizQuestions, 0)
