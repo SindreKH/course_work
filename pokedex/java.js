@@ -1,25 +1,26 @@
 'use strict'
 
 const containerMain = document.getElementById("pkmncontainer")
-const navBar = document.getElementById(navbar)
+const navBar = document.getElementById("navbar")
+const pageChange = {default: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=3", next:"", previous:""
+}
 
 async function getApi (url){
     const request = await fetch(url)
     const data = request.json()
     return data
 }
-async function logData(){
-    const newData = await getApi("https://pokeapi.co/api/v2/pokemon?offset=0&limit=3")
+async function startPage(url){
+    const newData = await getApi(url)
     console.log(newData)
     const results = newData.results
-    //containerMain.append(pokemonCard(newData))
     for (const data of results) {
         const pokeCard = await pokemonCard(data)
         containerMain.append(pokeCard)
         console.log(data)
     }
 }
-logData()
+startPage(pageChange.default)
 
 async function pokemonCard(obj){
     const {name, url} = obj
@@ -34,6 +35,18 @@ async function pokemonCard(obj){
     cardDiv.append(pokemonTitle, imageContainer)
     return cardDiv
 }
-function navBarButtons(){
-    document.createElement("button")
+function navBarBack(){
+    const back = document.createElement("button")
+    back.textContent = "<-"
+    navBar.append(back)
 } 
+//navbarInput(){
+    //const inputPrompt = document.createElement("input")
+
+navBarBack()
+function navBarForward(){
+    const forward = document.createElement("button")
+    forward.textContent = "->"
+    navBar.append(forward)
+} 
+navBarForward()
