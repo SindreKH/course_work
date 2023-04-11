@@ -1,5 +1,6 @@
 'use strict'
 const quizDiv = document.getElementById("container")
+const scoreEl = document.getElementById("points")
 
 const quizQuestions = [
     {
@@ -31,16 +32,38 @@ const quizQuestions = [
       correctAnswers: ["constructor"],
       usersAnswer: []
     },
+    {
+      question: "Which of the following is the correct way to create an audio element in javascript ?",
+      choices: [
+        "let audioPlayer = new Audio('sounds/clap.wav');",
+        "let audioPlayer = new audio('sounds/clap.wav');",
+        "let audioPlayer = createAudio('sounds/clap.wav');"],
+        correctAnswers: ["let audioPlayer = new Audio('sounds/clap.wav');"],
+      usersAnswer: []
+    }, 
   ]
-
-function displayQuestion(questionArray, currentQuestion) {
+  let score = 0
+  
+  function displayQuestion(questionArray, currentQuestion) {
+    while (quizDiv.firstChild){
+      quizDiv.removeChild(quizDiv.firstChild)
+    }
+    if (currentQuestion === quizQuestions.length){
+    let endText = document.createElement("p")
+    endText.textContent = `Congratulations, your score is ${score}`
+    let restart = document.createElement("button")
+    restart.textContent = "Restart"
+    restart.addEventListener("click", ()=>{displayQuestion(quizQuestions, 0)})
+    quizDiv.append(endText, restart)
+    return
+  }
   currentQuestion = currentQuestion
   let questionObj = questionArray[currentQuestion]
   const {question, choices, correctAnswers, usersAnswer} = questionObj
   
   let questionText = document.createElement("p")
   questionText.textContent = question
-
+  
   let choicesContainer = document.createElement("div")
   choicesContainer.id = "choicesdiv"
   for (let index = 0; index < choices.length; index++) {
@@ -65,30 +88,23 @@ function displayQuestion(questionArray, currentQuestion) {
   }
   let submitButton = document.createElement("button")
   submitButton.addEventListener("click",() =>{
-
-    if (usersAnswer.length > 0){
-
-    const submitAnswers = correctAnswers[0]
-    if (usersAnswer.includes(submitAnswers)){
-      console.log("give me points")
-    }
-      while (quizDiv.firstChild){
-        quizDiv.removeChild(quizDiv.firstChild)
-    }
-    console.log(usersAnswer)
-    console.log(correctAnswers)
+    if (usersAnswer.length > 0){ 
+    
       
-    currentQuestion++
-    displayQuestion(questionArray, currentQuestion)
 
+      
+      currentQuestion++
+      displayQuestion(questionArray, currentQuestion)
+      
     }
+    
   })
   submitButton.textContent = "Submit"
+  
+  
 
 
-
-
-
+  
   quizDiv.append(questionText, choicesContainer, submitButton)
 }
 
