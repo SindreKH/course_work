@@ -1,0 +1,13 @@
+body{
+    padding: 30px 150px;
+}
+#pkmncontainer{
+    display: flex;
+    justify-content: space-around;
+}
+#navbar{
+    display: flex;
+    justify-content: space-between;
+
+
+}
