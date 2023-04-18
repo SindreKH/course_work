@@ -70,7 +70,6 @@ function displayQuestion(questionArray, currentQuestion) {
 
     const submitAnswers = correctAnswers[0]
     if (usersAnswer.includes(submitAnswers)){
-      console.log("give me points")
     }
       while (quizDiv.firstChild){
         quizDiv.removeChild(quizDiv.firstChild)

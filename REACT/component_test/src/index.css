@@ -1,0 +1,13 @@
+body{
+  background-color: hsl(217, 54%, 11%);
+  width:1440px;
+  color:  hsl(0, 0%, 100%);
+}
+.card{
+  text-align: center;
+  margin: 0px px;
+  background-color: hsl(216, 50%, 16%) 
+}
+.equilibrium{
+  flex: 0;
+}
