@@ -2,21 +2,22 @@ import imageSrc from './assets/equilibrium.jpg';
 function App() {
   return (    
   <div className="card">
-  <div className="imageDiv">
-    <img className="equilibrium" src={imageSrc} alt="equilibrium" />
-      </div>
-  <div className="mainContent">
-        <h1>Equilibrium #3249</h1>
-        <p>Our Equilibrium collection promotes balance and calm</p>
-  </div>
-  <div className="miscInfo">
-    <h4>0.041 ETH</h4>
-    <h4>3 days left</h4>
+    <div className="imageDiv">
+      <img className="equilibrium" src={imageSrc} alt="equilibrium" />
+        </div>
+    <div className="mainContent">
+          <p className='userName'>Equilibrium #3249</p>
+          <p className='textContent'>Our Equilibrium collection promotes balance and calm</p>
+    </div>
+    <div className="miscInfo">
+      <p  className='versionNr'> 0.041 ETH</p>
+      <p  className='subLength'>3 days left</p>
 
-  </div>
-  <div className="authorText">
-    <h5>Creation of Jules Wyvern</h5>
-  </div>
+    </div>
+    <div className="lineDiv"></div>
+    <div className="authorText">
+      <p >Creation of Jules Wyvern</p>
+    </div>
 
 </div>
   )
