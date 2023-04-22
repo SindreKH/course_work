@@ -1,9 +1,9 @@
-import imageSrc from './assets/equilibrium.jpg';
+import {Image} from "../components/logo.jsx";
 function App() {
   return (    
   <div className="card">
-    <div className="imageDiv">
-      <img className="equilibrium" src={imageSrc} alt="equilibrium" />
+          <div className="imageDiv">  
+              {Image}
         </div>
     <div className="mainContent">
           <p className='userName'>Equilibrium #3249</p>
