@@ -1,5 +1,6 @@
-export default function Image(){
+export function MainImage(image){
     return(
-        <img className="logo" src="../assets/equilibrium.jpg" alt="equilibrium image"/>
+        <img className="logo" src={Image} alt="equilibrium image"></img>
+
     )
-}
+    }

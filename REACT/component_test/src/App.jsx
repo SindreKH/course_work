@@ -1,9 +1,9 @@
-import {Image} from "../components/logo.jsx";
+import { MainImage } from "./components/logo.jsx"
 function App() {
   return (    
   <div className="card">
           <div className="imageDiv">  
-              {Image}
+          <MainImage/>
         </div>
     <div className="mainContent">
           <p className='userName'>Equilibrium #3249</p>
@@ -22,5 +22,4 @@ function App() {
 </div>
   )
 }
-
 export default App
